@@ -172,7 +172,7 @@ class ToolTipWidget extends StatelessWidget {
               translation: Offset(0.0, contentFractionalOffset),
               child: SlideTransition(
                 position: Tween<Offset>(
-                  begin: Offset(0.0, contentFractionalOffset / 10),
+                  begin: Offset(0.0, contentFractionalOffset / 8),
                   end: Offset(0.0, 0.100),
                 ).animate(animationOffset),
                 child: Material(
