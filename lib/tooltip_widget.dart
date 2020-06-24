@@ -188,40 +188,13 @@ class ToolTipWidget extends StatelessWidget {
                           width: _getTooltipWidth(),
                           padding: EdgeInsets.symmetric(vertical: 8),
                           color: tooltipColor,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Container(
-                                child: Column(
-                                  crossAxisAlignment: title != null
-                                      ? CrossAxisAlignment.start
-                                      : CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    title != null
-                                        ? Text(
-                                      title,
-                                      style: titleTextStyle ??
-                                          Theme.of(context)
-                                              .textTheme
-                                              .title
-                                              .merge(TextStyle(
-                                              color: textColor)),
-                                    )
-                                        : Container(),
-                                    Expanded(
-                                      child: Text(
-                                        description,
-                                        style: descTextStyle ??
-                                            Theme.of(context)
-                                                .textTheme
-                                                .subtitle
-                                                .merge(TextStyle(color: textColor)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                          child: Text(
+                            description,
+                            style: descTextStyle ??
+                                Theme.of(context)
+                                    .textTheme
+                                    .subtitle1
+                                    .merge(TextStyle(color: textColor)),
                           ),
                         ),
                       ),
