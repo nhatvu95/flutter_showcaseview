@@ -208,13 +208,15 @@ class ToolTipWidget extends StatelessWidget {
                                               color: textColor)),
                                     )
                                         : Container(),
-                                    Text(
-                                      description,
-                                      style: descTextStyle ??
-                                          Theme.of(context)
-                                              .textTheme
-                                              .subtitle
-                                              .merge(TextStyle(color: textColor)),
+                                    Expanded(
+                                      child: Text(
+                                        description,
+                                        style: descTextStyle ??
+                                            Theme.of(context)
+                                                .textTheme
+                                                .subtitle
+                                                .merge(TextStyle(color: textColor)),
+                                      ),
                                     ),
                                   ],
                                 ),
