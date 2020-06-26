@@ -190,14 +190,17 @@ class ToolTipWidget extends StatelessWidget {
                           width: width ?? _getTooltipWidth(),
                           padding: EdgeInsets.symmetric(vertical: 8),
                           color: tooltipColor,
-                          child: Text(
-                            description,
-                            style: descTextStyle ??
-                                Theme
-                                    .of(context)
-                                    .textTheme
-                                    .subtitle1
-                                    .merge(TextStyle(color: textColor)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              description,
+                              style: descTextStyle ??
+                                  Theme
+                                      .of(context)
+                                      .textTheme
+                                      .subtitle1
+                                      .merge(TextStyle(color: textColor)),
+                            ),
                           ),
                         ),
                       ),
