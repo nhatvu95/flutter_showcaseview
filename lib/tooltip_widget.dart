@@ -167,21 +167,21 @@ class ToolTipWidget extends StatelessWidget {
         children: <Widget>[
           showArrow ? _getArrow(contentOffsetMultiplier) : Container(),
           Positioned(
-            top: contentY,
+            top: contentY-1,
             left: _getLeft(),
             right: _getRight(),
             child: FractionalTranslation(
               translation: Offset(0.0, contentFractionalOffset),
               child: SlideTransition(
                 position: Tween<Offset>(
-                  begin: Offset(0.0, contentFractionalOffset / 8),
+                  begin: Offset(0.0, contentFractionalOffset / 7),
                   end: Offset(0.0, 0.100),
                 ).animate(animationOffset),
                 child: Material(
                   color: Colors.transparent,
                   child: Container(
                     padding:
-                    EdgeInsets.only(top: paddingTop, bottom: paddingBottom),
+                        EdgeInsets.only(top: paddingTop, bottom: paddingBottom),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: GestureDetector(
@@ -189,19 +189,17 @@ class ToolTipWidget extends StatelessWidget {
                         child: Container(
                           width: width ?? _getTooltipWidth(),
                           color: tooltipColor,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                description,
-                                style: descTextStyle ??
-                                    Theme
-                                        .of(context)
-                                        .textTheme
-                                        .subtitle1
-                                        .merge(TextStyle(color: textColor)),
-
-                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              description,
+                              style: descTextStyle ??
+                                  Theme.of(context)
+                                      .textTheme
+                                      .subtitle1
+                                      .merge(TextStyle(color: textColor)),
                             ),
+                          ),
                         ),
                       ),
                     ),
@@ -251,7 +249,7 @@ class ToolTipWidget extends StatelessWidget {
   Widget _getArrow(contentOffsetMultiplier) {
     final contentFractionalOffset = contentOffsetMultiplier.clamp(-1.0, 0.0);
     return Positioned(
-      top: isArrowUp ? position.getBottom()-1 : position.getTop() - 1,
+      top: isArrowUp ? position.getBottom() - 1 : position.getTop() - 1,
       left: position.getCenter() - 24,
       child: FractionalTranslation(
         translation: Offset(0.0, contentFractionalOffset),
@@ -262,15 +260,15 @@ class ToolTipWidget extends StatelessWidget {
           ).animate(animationOffset),
           child: isArrowUp
               ? Icon(
-            Icons.arrow_drop_up,
-            color: tooltipColor,
-            size: 50,
-          )
+                  Icons.arrow_drop_up,
+                  color: tooltipColor,
+                  size: 45,
+                )
               : Icon(
-            Icons.arrow_drop_down,
-            color: tooltipColor,
-            size: 50,
-          ),
+                  Icons.arrow_drop_down,
+                  color: tooltipColor,
+                  size: 50,
+                ),
         ),
       ),
     );
