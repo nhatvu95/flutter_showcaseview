@@ -188,10 +188,7 @@ class ToolTipWidget extends StatelessWidget {
                         onTap: onTooltipTap,
                         child: Container(
                           width: width ?? _getTooltipWidth(),
-                          padding: EdgeInsets.symmetric(vertical: 8),
                           color: tooltipColor,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
                             child: Text(
                               description,
                               style: descTextStyle ??
@@ -200,7 +197,7 @@ class ToolTipWidget extends StatelessWidget {
                                       .textTheme
                                       .subtitle1
                                       .merge(TextStyle(color: textColor)),
-                            ),
+
                           ),
                         ),
                       ),
@@ -251,13 +248,13 @@ class ToolTipWidget extends StatelessWidget {
   Widget _getArrow(contentOffsetMultiplier) {
     final contentFractionalOffset = contentOffsetMultiplier.clamp(-1.0, 0.0);
     return Positioned(
-      top: isArrowUp ? position.getBottom() : position.getTop() - 1,
+      top: isArrowUp ? position.getBottom()-1 : position.getTop() - 1,
       left: position.getCenter() - 24,
       child: FractionalTranslation(
         translation: Offset(0.0, contentFractionalOffset),
         child: SlideTransition(
           position: Tween<Offset>(
-            begin: Offset(0.0, contentFractionalOffset / 5),
+            begin: Offset(0.0, contentFractionalOffset / 4),
             end: Offset(0.0, 0.150),
           ).animate(animationOffset),
           child: isArrowUp
