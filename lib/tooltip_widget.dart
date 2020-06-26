@@ -42,11 +42,13 @@ class ToolTipWidget extends StatelessWidget {
   final bool showArrow;
   final double contentHeight;
   final double contentWidth;
+  final double width;
   static bool isArrowUp;
   final VoidCallback onTooltipTap;
 
   ToolTipWidget({
     this.position,
+    this.width,
     this.offset,
     this.screenSize,
     this.title,
@@ -185,13 +187,14 @@ class ToolTipWidget extends StatelessWidget {
                       child: GestureDetector(
                         onTap: onTooltipTap,
                         child: Container(
-                          width: _getTooltipWidth(),
+                          width: width ?? _getTooltipWidth(),
                           padding: EdgeInsets.symmetric(vertical: 8),
                           color: tooltipColor,
                           child: Text(
                             description,
                             style: descTextStyle ??
-                                Theme.of(context)
+                                Theme
+                                    .of(context)
                                     .textTheme
                                     .subtitle1
                                     .merge(TextStyle(color: textColor)),
