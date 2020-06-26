@@ -167,7 +167,7 @@ class ToolTipWidget extends StatelessWidget {
         children: <Widget>[
           showArrow ? _getArrow(contentOffsetMultiplier) : Container(),
           Positioned(
-            top: contentY-1,
+            top: contentY - 2,
             left: _getLeft(),
             right: _getRight(),
             child: FractionalTranslation(
