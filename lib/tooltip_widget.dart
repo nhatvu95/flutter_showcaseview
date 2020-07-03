@@ -193,6 +193,7 @@ class ToolTipWidget extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               description,
+                              textAlign: TextAlign.center,
                               style: descTextStyle ??
                                   Theme.of(context)
                                       .textTheme
